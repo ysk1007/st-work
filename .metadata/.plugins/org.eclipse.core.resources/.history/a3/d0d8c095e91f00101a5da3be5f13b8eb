@@ -1,0 +1,8 @@
+package com.example.fileupload.dto;
+
+
+public class Board {
+	private int boardNo;
+	private String title;
+	private String pw;
+}

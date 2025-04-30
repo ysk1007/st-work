@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let today = new Date();
+		console.log(today.getFullYear(),"년",today.getDay(),"월",today.getDate,"일");
+		console.log(today.getDay());
+		console.log(today.getDate());
+	</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+package com.example.fileupload.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.fileupload.entity.BoardMapping;
+import com.example.fileupload.entity.Boardfile;
+
+@Repository
+public interface BoardfileRepository extends JpaRepository<Boardfile, Integer>{
+	BoardMapping findAllby();
+}

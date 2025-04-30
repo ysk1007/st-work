@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일 추가</title>
+</head>
+<body>
+	<h1>boardList</h1>
+	<table border="1">
+		<tr>
+			<th>#</th>
+			<th>제목</th>
+		</tr>
+		{{#list}}
+			<tr>
+				<td>{{bno}}</td>
+				<td><a href="/boardOne?bno={{bno}}">{{title}}</a></td>
+			</tr>
+		{{/list}}
+	</table>
+</body>
+</html>

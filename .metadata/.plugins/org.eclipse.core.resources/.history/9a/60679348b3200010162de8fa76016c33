@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판 삭제</title>
+</head>
+<body>
+	<h1>removeBoard</h1>
+	<a href="/boardOne?bno={{bno}}">취소</a>
+	{{#msg}}
+		{{msg}}
+	{{/msg}}
+	<form method="post" action="/removeBoard">
+		<input type="text" name="bno" value="{{bno}}">
+		<div>
+			비밀번호 : <input type="password" name="pw" placeholder="비밀번호 입력..">
+		</div>
+		<div>
+			<button type="submit">삭제</button>
+		</div>
+	</form>
+</body>
+</html>

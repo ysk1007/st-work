@@ -1,0 +1,60 @@
+package com.example.fileupload.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.fileupload.entity.BoardMapping;
+import com.example.fileupload.entity.Boardfile;
+import com.example.fileupload.repository.BoardRepository;
+import com.example.fileupload.repository.BoardfileRepository;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@Slf4j
+public class BoardController {
+	
+	@Autowired BoardRepository boardRepository;
+	@Autowired BoardfileRepository boardfileRepository;
+	
+	// 보드 리스트
+	@GetMapping({"/","/boardList"})
+	public String boardList(Model model
+			, @RequestParam(value="currentPage",defaultValue="0") int currentPage
+			, @RequestParam(value="rowPerPage",defaultValue="8") int rowPerPage
+			, @RequestParam(value="word",defaultValue="") String word) {
+		
+		// 페이징
+		// Sort 
+		Sort sort = Sort.by("bno").descending();
+		// PageRequest
+		PageRequest page = PageRequest.of(currentPage,rowPerPage,sort);
+		
+		Page<BoardMapping> list = boardRepository.findByTitleContaining(page,word);
+		model.addAttribute("list",list);
+		
+		model.addAttribute("nextPage",list.get)
+		
+		return "boardList";
+	}
+	
+	// 보드 상세
+	@GetMapping("/boardOne")
+	public String boardOne(Model model, @RequestParam(value = "bno") int bno) {
+		BoardMapping boardMapping = boardRepository.findByBno(bno);
+
+		List<Boardfile> fileList = boardfileRepository.findByBno(bno);
+		log.debug("size:"+fileList.size());
+		
+		model.addAttribute("boardMapping", boardMapping);
+		model.addAttribute("fileList", fileList);
+		return "boardOne";
+	}
+}

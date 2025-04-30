@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		const input = prompt('숫자를 입력해주세요');
+	</script>
+</head>
+<body>
+
+</body>
+</html>

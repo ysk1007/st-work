@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	const input = prompt('당신의 이름은?');
+	console.log(input);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+package com.example.jpa2.controller;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController	// View 없는 컨트롤러 -> Model값을 Json문자열값으로 반환
+public class TestController {
+
+}

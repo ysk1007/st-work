@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//const myAge = Number(prompt('나의 나이는?'));
+	//const yourAge = Number(prompt('당신의 나이는?'));
+	
+	//alert(`나이의 합은? ${myAge + yourAge} 입니다`);
+	
+	let num1 = 20;
+	let num2 = 25;
+	console.log(""+ num1 + num2);
+	
+	// if문()안의 값은 bool 값이 아니면 자동으로 형변환 Boolean()
+	if(1){
+	
+	}
+	if(0){
+	
+	}
+	if("test"*17){
+	
+	}
+	let blank =' ';
+	if(blank){
+
+	}
+	let object = null;
+	if(object){
+
+	}
+	let x;
+	if(x){
+	
+	}
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

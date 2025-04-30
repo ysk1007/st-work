@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	const myAge = prompt('나의 나이는?');
+	const yourAge = prompt('당신의 나이는?');
+	
+	alert(myAge + yourAge);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+package com.example.jpa2.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entit
+@Table
+public class Emp {
+	
+}

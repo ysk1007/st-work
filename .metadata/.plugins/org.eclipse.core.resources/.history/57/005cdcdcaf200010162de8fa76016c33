@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일 추가</title>
+</head>
+<body>
+	<h1>boardList</h1>
+	<a href="/addBoard">보드 추가</a>
+	<table border="1">
+		<tr>
+			<th>#</th>
+			<th>제목</th>
+		</tr>
+		{{#list}}
+			<tr>
+				<td>{{bno}}</td>
+				<td><a href="/boardOne?bno={{bno}}">{{title}}</a></td>
+			</tr>
+		{{/list}}
+	</table>
+	
+	{{#hasNext}}
+		<a href="/boardList?currentPage={{nextPage}}">다음</a>
+	{{/hasNext}}
+</body>
+</html>

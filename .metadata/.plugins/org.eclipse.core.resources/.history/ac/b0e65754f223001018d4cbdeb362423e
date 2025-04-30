@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="number" id="a">
+	<select id = "oper">
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+	</select>
+	<input type="number" id="b">
+	<button type="button">=</button>
+	
+	<script>
+		function cal(){
+			const a = document.getElementById(a);
+			const b = document.getElementById(b);
+			const oper = document.getElementById(oper); 
+		}
+	</script>
+</body>
+</html>

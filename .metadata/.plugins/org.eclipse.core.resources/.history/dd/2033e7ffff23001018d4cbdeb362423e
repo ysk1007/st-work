@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		숫자
+		문자열
+		불
+	*/
+	let str = 'goodee academy';
+	console.log(str);
+	
+	str = "Goodee Academy";
+	console.log(str);
+	
+	str = "test'test";
+	
+	// 백틱 키워드를 사용하면 멀티라인 문자여 표현이 가능
+	str = `goodee 
+		academy`;
+	console.log(str);
+	
+	let x = 5;
+	let y = 7;
+	console.log(x + '*' + y + '=' + x*y);
+	
+	// 2) 백틱 문자열은 문자열안에 표현식 사용이 가능 - jsp에서 사용하면 EL과 충돌
+	console.log(`${x} * ${y} = ${x*y}`);
+	
+	let name = "구디";
+	console.log('당신의 이름은 ' + name + '입니다');
+	
+	console.log(`당신의 이름은 ${name} 입니다.`);
+	
+	// 자바 스크립트의 문자열은 인덱스가 존재
+	console.log(name[0]);	// 구
+	console.log(name[1]);	// 디
+	console.log(name.length);
+	console.log('문자열 길이',name.length);
+	
+	
+	console.log(4/2);
+	console.log(5/2);
+	console.log(5.0/2);
+	console.log(5%2);
+	console.log(4/2);
+	
+	let t = true;
+	let f = false;
+	console.log(f);
+	console.log(t);
+	
+	x = 10 > 100;
+	console.log(x);	// false
+	
+	if(5&1){
+		console.log('홀수');
+	}
+	
+	console.log('===','777' === 777);	// 정확한 연산
+	console.log('==','777' == 777);	// 느슨한 연산 : ex) 자동형변환 후 연산
+	
+	console.log('!==','777' !== 777);	// 정확한 연산
+	console.log('!=','777' != 777);	// 느슨한 연산 : ex) 자동형변환 후 연산
+	
+	// 피연산자가 같은 자료형임을 확신하면 느슨한 연산자를 사용해도 무관
+	
+	
+	
+	let q = 10;
+	let w = 0;
+	w = q * 2;
+	w = 'hello';
+	if(typeof(q) === 'number'){
+		w = q * 10;
+	}
+	console.log(w);	// NaN
+	
+	let un;
+	console.log(typeof('7'));
+	console.log(typeof(7));
+	console.log(typeof(false));
+	console.log(typeof(un));
+	function add(x, y){
+		return x + y;
+	};
+	
+	console.log(typeof(add));
+	let obj = new Object();
+	console.log(typeof(obj));
+	console.log(typeof({}));
+	
+	let arr = [];
+	console.log(typeof(arr));
+	
+	/*
+		출력 방법
+		1) 콘솔에 출력 (디버깅 & 로그) : console.log()
+		2) 경고창에 출력 : alert()
+		3) html페이지에 출력 : document.write()
+		4) 특정 태그안 or input value안에 출력 
+	*/
+	
+	
+	console.log('test');
+	alert('test');
+	document.write('<p>test</p>');
+	
+</script>
+</head>
+<body>
+	<input type="text" name="x" id="x" value="">
+	<div id="y"></div>
+	<script>
+		document.getElementById('x').value = 'x 입니다.';
+		document.getElementById('y').innerHTML = 'y 입니다.';
+	</script>
+</body>
+</html>

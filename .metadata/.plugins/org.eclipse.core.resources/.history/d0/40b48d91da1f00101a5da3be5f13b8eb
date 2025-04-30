@@ -1,0 +1,14 @@
+package com.example.jpa2.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@da
+@Table(name="emp")
+public class Emp {
+	private int eno;
+	private int dno;
+	private String dname;
+	private String gender;
+}

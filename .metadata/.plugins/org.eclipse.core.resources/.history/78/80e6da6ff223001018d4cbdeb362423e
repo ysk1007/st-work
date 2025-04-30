@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input type="number" id="a">
+	<select id = "oper">
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="*">*</option>
+		<option value="/">/</option>
+	</select>
+	<input type="number" id="b">
+	<button type="button">=</button>
+	
+	<script>
+		function cal(){
+			const a = Number(document.getElementById('a').value);
+			const b = Number(document.getElementById('b').value);
+			const oper = document.getElementById('oper').value;
+			switch(oper){
+				case'+':
+					return a + b;
+				case'-':
+					return a - b;
+				case'*':
+					return a * b;
+				case'/':
+					return a / b;
+			}
+			console.log()
+		}
+	</script>
+</body>
+</html>

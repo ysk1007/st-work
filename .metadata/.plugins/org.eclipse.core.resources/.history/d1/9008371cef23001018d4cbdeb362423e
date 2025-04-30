@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	const input = prompt('당신의 이름은?');
+	console.log(input);
+	
+	const input2 = confirm('미성년자 인가요?');
+	console.log(input2);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

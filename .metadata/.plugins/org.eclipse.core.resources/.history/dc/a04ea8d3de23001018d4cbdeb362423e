@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/*
+		숫자
+		문자열
+		불
+	*/
+	let str = 'goodee academy';
+	console.log(str);
+	
+	str = "Goodee Academy";
+	console.log(str);
+	
+	str = "test'test";
+	
+	// 백틱 키워드를 사용하면 멀티라인 문자여 표현이 가능
+	str = `goodee 
+		academy`;
+	console.log(str);
+	
+	let x = 5;
+	let y = 7;
+	console.log(x + '*' + y + '=' + x*y);
+	
+	// 2) 백틱 문자열은 문자열안에 표현식 사용이 가능 - jsp에서 사용하면 EL과 충돌
+	console.log(`${x} * ${y} = ${x*y}`);
+	
+	let name = "구디";
+	console.log('당신의 이름은 ' + name + '입니다');
+	
+	console.log(`당신의 이름은 ${name} 입니다.`);
+	
+	// 자바 스크립트의 문자열은 인덱스가 존재
+	console.log(name[0]);	// 구
+	console.log(name[1]);	// 디
+	console.log(name.length);
+	console.log('문자열 길이',name.length);
+	
+	
+	console.log(4/2);
+	console.log(5/2);
+	console.log(5.0/2);
+	console.log(5%2);
+	console.log(4/2);
+	
+	let t = true;
+	let f = false;
+	console.log(f);
+	console.log(t);
+	
+	x = 10 > 100;
+	console.log(x);	// false
+	
+	if(5&1){
+		console.log('홀수');
+	}
+	
+	console.log('===','777' === 777);	// 정확한 연산
+	console.log('==','777' == 777);	// 느슨한 연산 : ex) 자동형변환 후 연산
+	
+	console.log('!==','777' !== 777);	// 정확한 연산
+	console.log('!=','777' != 777);	// 느슨한 연산 : ex) 자동형변환 후 연산
+	
+	// 피연산자가 같은 자료형임을 확신하면 느슨한 연산자를 사용해도 무관
+	
+	
+	
+	let x = 10;
+	console.log(typeof(x));
+</script>
+</head>
+<body>
+	
+</body>
+</html>

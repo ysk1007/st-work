@@ -1,0 +1,13 @@
+package com.example.join.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class memberController {
+	@GetMapping("/joinMember")
+	public String joinMember() {
+		
+		return "joinMember";
+	}
+}

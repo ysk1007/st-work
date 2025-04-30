@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파일 추가</title>
+</head>
+<body>
+	<h1>addBoard</h1>
+	<form method="post" action="/addBoard" enctype="multipart/form-date">
+		<div>
+			title : <input type="text" name="title">
+		</div>
+	</form>
+</body>
+</html>

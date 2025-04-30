@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		const date = new Date();	// 웹 브라우저의 (클라이언트)의 시간
+		const hour = data.getHours();
+		
+		switch(true){
+			case hour<11:
+				alert('아침');
+			break;
+			case hour<15:
+				alert('점심');
+			break;
+			default:
+				alert('저녁');
+			break;
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

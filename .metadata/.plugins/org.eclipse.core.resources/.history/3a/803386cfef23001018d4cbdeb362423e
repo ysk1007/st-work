@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	const myAge = Number(prompt('나의 나이는?'));
+	const yourAge = Number(prompt('당신의 나이는?'));
+	
+	alert(`나이의 합은? ${myAge + yourAge} 입니다`);
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

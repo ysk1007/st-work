@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		let arr = [];
+		// let arr = new Array();
+		console.log(arr.length);
+		arr[0] = '구디';
+		console.log(arr.length,arr[0]);
+		
+		arr[1] = 777;
+		console.log(arr.length,arr[0],arr[1]);
+		
+		console.log(arr);
+		
+		// 자바스크립트의 배열은 자바의 배열보다는 List<Object>와 유사함
+		
+		arr.push('루피');
+		arr.push('조로');
+		arr.push('나미');
+		console.log(arr);
+		arr.splice(3,2);	// 배열 자르기
+		
+		console.log(arr);
+		
+		console.log(arr.indexOf('루피'));	// 배열에서 값 찾기
+		
+		let str = "동해물과 백두산이 마르고 닳도록";
+		console.log(str[3]);
+		console.log(str.indexOf('백두산'));
+		
+		
+		
+		
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

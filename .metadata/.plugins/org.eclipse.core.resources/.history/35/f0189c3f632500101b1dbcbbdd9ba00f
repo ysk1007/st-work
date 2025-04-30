@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		let arr = [];
+		// let arr = new Array();
+		console.log(arr.length);
+		arr[0] = '구디';
+		console.log(arr.length,arr[0]);
+		
+		arr[1] = 777;
+		console.log(arr.length,arr[0],arr[1]);
+		
+		console.log(arr);
+		
+		// 자바스크립트의 배열은 자바의 배열보다는 List<Object>와 유사함
+		
+		arr.push('루피');
+		arr.push('조로');
+	</script>
+</head>
+<body>
+
+</body>
+</html>

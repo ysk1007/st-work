@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let isLeapYear = function(year){
+			return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+		};	// 입력값이 숫자 하나이고, 매개값 bool
+		
+		console.log('2020년',isLeapYear(2020));
+		console.log('2010년',isLeapYear(2010));
+		console.log('년',isLeapYear());
+	</script>
+</body>
+</html>

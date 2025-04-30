@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	temp log<textarea id="tlog"></textarea>
+	<br>
+	result log<textarea id="rlog"></textarea>
+	<hr>
+	
+	<table border="1">
+		<tr>
+			<td colspan="4">
+				<textarea id="temp"></textarea>
+			</td>
+		</tr>		
+		<tr>
+			<td colspan="4">
+				<textarea id="result"></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td><button type="button" id="seven">7</button></td>
+			<td><button type="button" id="eight">8</button></td>
+			<td><button type="button" id="nine">9</button></td>
+			<td><button type="button" id="div">/</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="four">4</button></td>
+			<td><button type="button" id="five">5</button></td>
+			<td><button type="button" id="six">6</button></td>
+			<td><button type="button" id="mul">*</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="one">1</button></td>
+			<td><button type="button" id="two">2</button></td>
+			<td><button type="button" id="three">3</button></td>
+			<td><button type="button" id="sub">-</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="zero">0</button></td>
+			<td><button type="button" id="equal">=</button></td>
+			<td><button type="button" id="back">←</button></td>
+			<td><button type="button" id="add">+</button></td>
+		</tr>
+		<tr>
+			<td colspan="4">
+				<button type="button" id="clear">Clear</button>
+				<button type="button" id="reset">Reset</button>
+			</td>
+			
+		</tr>
+	</table>
+	
+	<script>
+		let result = '';
+		let temp = '';
+		
+		function debug() {
+		    document.querySelector('#tlog').value = temp;
+		    document.querySelector('#rlog').value = result;
+		}
+		
+		document.querySelector('#zero').addEventListener('click', function(){
+			result += 0;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		document.querySelector('#one').addEventListener('click', function(){
+			result += 1;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		document.querySelector('#two').addEventListener('click', function(){
+			result += 2;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		document.querySelector('#three').addEventListener('click', function(){
+			result += 3;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		document.querySelector('#four').addEventListener('click', function(){
+			result += 4;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		document.querySelector('#five').addEventListener('click', function(){
+			result += 5;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		document.querySelector('#six').addEventListener('click', function(){
+			result += 6;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		document.querySelector('#seven').addEventListener('click', function(){
+			result += 7;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		
+		document.querySelector('#eight').addEventListener('click', function(){
+			result += 8;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		document.querySelector('#nine').addEventListener('click', function(){
+			result += 9;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+	
+		// 클리어
+		document.querySelector('#clear').addEventListener('click', function(){
+			result = '';
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		// 계산기 리셋
+		document.querySelector('#reset').addEventListener('click', function(){
+			result = '';
+			temp = '';
+			document.querySelector('#temp').value = temp;
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+		// 더하기 버튼
+		document.querySelector('#add').addEventListener('click', function(){
+		    if(result.length < 1){	// 입력값이 없으면
+		        return;
+		    }
+		    
+		    if(temp.length < 1){	// 저장값이 없으면
+		        temp = result;
+		    }
+		    else{
+		        temp = parseInt(temp) + parseInt(result);
+		    }
+		    result = '';
+		    document.querySelector('#temp').value = temp + '+';
+		    document.querySelector('#result').value = result;
+		    debug();
+		});
+
+		
+		// 빼기 버튼
+		document.querySelector('#sub').addEventListener('click', function(){
+		    if(result.length < 1){	// 입력값이 없으면
+		        return;
+		    }
+		    
+		    if(temp.length < 1){	// 저장값이 없으면
+		        temp = result;
+		    }
+		    else{
+		        temp = parseInt(temp) - parseInt(result);
+		    }
+		    result = '';
+		    document.querySelector('#temp').value = temp + '-';
+		    document.querySelector('#result').value = result;
+		    debug();
+		});
+		
+		// 곱하기 버튼
+		document.querySelector('#mul').addEventListener('click', function(){
+		    if(result.length < 1){	// 입력값이 없으면
+		        return;
+		    }
+		    
+		    if(temp.length < 1){	// 저장값이 없으면
+		        temp = result;
+		    }
+		    else{
+		        temp = parseInt(temp) * parseInt(result);
+		    }
+		    result = '';
+		    document.querySelector('#temp').value = temp + '*';
+		    document.querySelector('#result').value = result;
+		    debug();
+		});
+		
+		// 나누기 버튼
+		document.querySelector('#div').addEventListener('click', function(){
+		    if(result.length < 1){	// 입력값이 없으면
+		        return;
+		    }
+		    
+		    if(temp.length < 1){	// 저장값이 없으면
+		        temp = result;
+		    }
+		    else{
+		        temp = parseInt(temp) / parseInt(result);
+		    }
+		    result = '';
+		    document.querySelector('#temp').value = temp + '/';
+		    document.querySelector('#result').value = result;
+		    debug();
+		});
+		
+		// = 버튼
+		document.querySelector('#equal').addEventListener('click', function(){
+			let oper = result.substr(result.length - 1);
+	    	console.log(oper);
+		    if(result.length < 1){	// 입력값이 없으면
+		        return;
+		    }
+		    
+		    if(temp.length < 1){	// 저장값이 없으면
+		 		result = temp;
+		    }
+		    else{	// 계산 로직
+				// oper 가져오기 [+,-,*,/]
+		    }
+		    result = '';
+		    document.querySelector('#temp').value = temp + '-';
+		    document.querySelector('#result').value = result;
+		    debug();
+		});
+		
+		
+		// 지우기 버튼
+		document.querySelector('#back').addEventListener('click', function(){
+
+			
+			result = result.slice(0,result.length-1);
+			
+			document.querySelector('#result').value = result;
+			debug();
+		});
+		
+	</script>
+</body>
+</html>

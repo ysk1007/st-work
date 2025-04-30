@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<td colspan="4">
+				<input type="text" id="result">
+			</td>
+		</tr>
+		<tr>
+			<td><button type="button" id="seven">7</button></td>
+			<td><button type="button" id="eight">8</button></td>
+			<td><button type="button" id="nine">9</button></td>
+			<td><button type="button" id="div">/</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="four">4</button></td>
+			<td><button type="button" id="five">5</button></td>
+			<td><button type="button" id="six">6</button></td>
+			<td><button type="button" id="mul">*</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="one">1</button></td>
+			<td><button type="button" id="two">2</button></td>
+			<td><button type="button" id="three">3</button></td>
+			<td><button type="button" id="sub">-</button></td>
+		</tr>
+		<tr>
+			<td><button type="button" id="zero">0</button></td>
+			<td colspan="2"><button type="button" id="equal">=</button></td>
+			<td><button type="button" id="add">+</button></td>
+		</tr>
+	</table>
+	
+	<script>
+		let test = function(){
+			console.log('test');
+		}
+		document.querySelector('#zero').addEventListener('click', test);
+	</script>
+</body>
+</html>

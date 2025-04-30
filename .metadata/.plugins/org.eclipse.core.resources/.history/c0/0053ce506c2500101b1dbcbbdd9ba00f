@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		function hello(){	// {}안의 모든 코드(명령)들을 hello 이름으로 부르겠다 - 코드의 집합
+			alert('hello');
+		}
+		
+		hello();			// 함수 호출
+		
+		let bye = function(){	// 익명 함수를 bye변수에 저장
+			alert('bye');
+		}
+		
+		bye();
+		
+		let hello2 = hello;
+		let bye2 = bye;
+		
+		hello2();
+		bye2();
+		
+		// 익명함수 즉시호출
+		(function(){console.log('하하하');})();
+		
+		f1();
+		f2();
+		
+		// 즉시호출이 아닌 경우는 익명함수는 변수에 대입해서 사용하면 된다.
+		let f1 = function(){console.log('호호호');};
+		
+		// 선언적함수 : 호이스팅
+		function f2(){
+			alert('우우우');
+		};
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</body>
+</html>

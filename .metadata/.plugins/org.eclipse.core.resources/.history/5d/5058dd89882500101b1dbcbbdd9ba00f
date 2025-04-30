@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		let carMove = function(){
+			console.log('차를타고 간다');
+		}
+	
+		let cycleMove = function(){
+			console.log('자전거타고 간다');
+		}
+		
+		let move = function (f){
+			f();	
+		}
+		
+		let move2 = function(str){
+			if(str == '차'){
+				console.log('차를타고 간다');
+			}
+			else if(str == '자전거'){
+				console.log('차를타고 간다');
+			}
+		}
+		
+		move(carMove);
+		move(cycleMove);
+	</script>
+</body>
+</html>

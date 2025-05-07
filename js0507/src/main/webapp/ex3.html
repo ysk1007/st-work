@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		const numbers = [273, 52, 103, 32, 57];
+		
+		// forEach() 메서드
+		numbers.forEach(function (val, i, array){	// 값, 인덱스, 원본 배열
+			console.log(`${i}번째 요소 : ${val} [${array}]`);
+		});
+		
+		// map() 메서드 : 새로운 배열의 반환 값
+		let result = numbers.map(function(val,i){
+			return val % 2;	// 배열의 길이만큼 반환값 배열로 반환한다
+		});
+		
+		console.log(result);
+		
+		// 화살표 함수
+		let result2 = numbers.map((val,i)=> val&1 ? '홀':'짝');
+		console.log(result2);
+		
+		//  filter()원본 배열에서 원하는 결과의 배열만 반환
+		let result3 = numbers.filter((val) => val%2 == 0);
+		console.log(result3);
+		
+		// 체인형태로 호출
+		numbers
+			.filter(val=>val > 50)
+			.map(val=> val & 1 ? '홀' : '짝')
+			.forEach(val=>console.log(val));
+	</script>
+
+</body>
+</html>

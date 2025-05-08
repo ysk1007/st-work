@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		document.addEventListener('DOMContentLoaded',()=>{
+		console.log(document.querySelector('#name').innerHTML);
+		
+		console.log(document.querySelectorAll('p')[0].innerHTML);
+		console.log(document.querySelectorAll('p')[1].innerHTML);
+		console.log(document.querySelectorAll('.gd')[0].innerHTML);
+		console.log(document.querySelectorAll('.gd')[1].innerHTML);
+		
+		console.log(document.querySelector('input[type=password]').value);
+		})
+	</script>
+</head>
+
+<body>
+	<p>p태그 내용1</p>
+	<p>p태그 내용2</p>
+	<div id="name">id=name내용</div>
+	<div class="gd">class=gd내용1</div>
+	<h1 class="gd">class=gd내용2</h1>
+	<input type="text" value="1">
+	<input type="password" value="1234">
+</body>
+
+
+</html>

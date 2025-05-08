@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 부트스트랩 5 CDN 추가 -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body class="bg-light p-4">
+
+	<h1 class="text-center mb-4">퀴즈</h1>
+	<h3 class="text-center mb-4">소수점은 2자리 까지</h3>
+
+	<div class="container">
+		<table class="table table-bordered text-center align-middle">
+			<tr>
+				<td colspan="4" class="bg-light">
+					문제 나오는 공간 : 
+					<input type="text" id="answer" class="form-control text-center d-inline-block w-50" readonly>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" class="bg-light">
+					답안 나오는 공간 : 
+					<input type="text" id="result" class="form-control text-center d-inline-block w-50" readonly>
+				</td>
+			</tr>
+			<tr>
+				<td><button type="button" id="num7" class="btn btn-primary w-100">7</button></td>
+				<td><button type="button" id="num8" class="btn btn-primary w-100">8</button></td>
+				<td><button type="button" id="num9" class="btn btn-primary w-100">9</button></td>
+				<td><button type="button" id="new" class="btn btn-success w-100">새로운 문제 출력</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" id="num4" class="btn btn-primary w-100">4</button></td>
+				<td><button type="button" id="num5" class="btn btn-primary w-100">5</button></td>
+				<td><button type="button" id="num6" class="btn btn-primary w-100">6</button></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><button type="button" id="num1" class="btn btn-primary w-100">1</button></td>
+				<td><button type="button" id="num2" class="btn btn-primary w-100">2</button></td>
+				<td><button type="button" id="num3" class="btn btn-primary w-100">3</button></td>
+				<td><button type="button" id="dot" class="btn btn-secondary w-100">.</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" id="del" class="btn btn-warning w-100">del</button></td>
+				<td><button type="button" id="num0" class="btn btn-primary w-100">0</button></td>
+				<td><button type="button" id="minus" class="btn btn-secondary w-100">-</button></td>
+				<td><button type="button" id="resultBtn" class="btn btn-danger w-100">답안 제출</button></td>
+			</tr>
+		</table>
+	</div>
+	
+<script>
+
+	let answer = $('#answer');
+	let result = $('#result');
+	
+	let answerText='';			// 문제 텍스트
+	let resultText='';			// 답안 텍스트
+	
+	let num1 = 0;				// 피연산자1
+	let num2 = 0;				// 피연산자2
+	let oper = '';				// 연산자
+	let dotFlag = false;		// 소수점 확인
+	
+	// 1~9 버튼
+	for(let i = 1 ; i <= 9 ; i++){
+		$('#num'+i).click(()=>{
+			if(resultText === '0'){	// 0 무시 시작
+				resultText = i+'';
+			}
+			else{
+				resultText += i;
+			}
+			result.val(resultText);
+		})
+	}
+	
+	// 0 버튼
+	$('#num0').click(()=>{
+		if(resultText === '0') return;	// 000012.. 방지
+		resultText += 0;
+		result.val(resultText);
+	})
+	
+	// 문제 출력
+	$('#new').click(()=>{
+		// 피연산자 1
+		num1 = Math.floor((Math.random() * 100) + 1);
+
+		// +,-,*,/
+		let r = Math.random();
+		if(r > 0.75) oper = '+';
+		else if(r > 0.5) oper = '-';
+		else if(r > 0.25) oper = '*';
+		else oper = '/';
+		
+		// 피연산자 2
+		num2 = Math.floor((Math.random() * 100) + 1);
+		
+		// 텍스트 적용
+		answer.val(num1 + oper + num2);
+	})
+	
+	// 답안 제출
+	$('#resultBtn').click(()=>{
+		let correct = false;
+		
+		if(oper == '+') correct = parseInt(resultText) == (num1 + num2);
+		else if(oper == '-') correct = parseInt(resultText) == (num1 - num2);
+		else if(oper == '*') correct = parseInt(resultText) == (num1 * num2);
+		else correct = parseFloat(resultText).toFixed(2) == (num1 / num2).toFixed(2);
+		
+		alert(correct ? '정답' : '틀림');
+	})
+	
+	// 음수
+	$('#minus').click(()=>{
+		if(resultText === '') return;
+		
+		resultText = (resultText * -1)+'';
+		result.val(resultText);
+	})
+	
+	// 소수점
+	$('#dot').click(()=>{
+		if(resultText === '' || dotFlag == true) return;
+		
+		dotFlag = true;
+		resultText += '.';
+		result.val(resultText);
+	})
+	
+	// 지우기
+	$('#del').click(()=>{
+		if(resultText.indexOf('.') != -1){	// 소수점 지움
+			dotFlag = false;
+		}
+		resultText = resultText.slice(0,resultText.length-1);
+		result.val(resultText);
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+	<h1></h1>
+<script>
+	
+	let rainbow = ['#b82727','#d97325','#f7cf05','#27c227','#1398eb','#0d1e7a','#6f0ecf'];
+	let t1 = document.querySelectorAll('h1');
+	console.log(t1);	//<h1>~
+	
+	(()=>{
+		for(let i = 0 ; i < 9999 ; i++){
+			let random = Math.floor(Math.random() * 7);
+			
+			//swap
+			let temp = rainbow[0];
+			rainbow[0] = rainbow[random];
+			rainbow[random] = temp;
+		}
+	})()
+
+	t1.forEach((val,i)=>{
+		val.textContent = '스이나 우매~';
+		
+		val.style.color = '000000';
+		val.style.backgroundColor = rainbow[i];
+		val.style.padding = '10px';
+	})
+
+</script>
+</body>
+
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	// 정보은닉, 캡슐화
+	class Member{
+		#age;	// private age
+		constructor(name='guest',age=0){
+			this.name = name;
+			this.#age = age;
+		}
+		
+		// 메서드를 화살표 함수 X
+		print(){
+			alert(this.name + this.age);
+		}
+		
+		getAge(){	// public getter
+			return this.#age;
+		}
+		
+		setAge(age){
+			this.#age = age
+		}
+	}
+	let m1 = new Member();
+	let m2 = new Member('로빈',27);
+	m2.setAge(22);
+	alert(m2.name + m2.getAge());
+</script>
+</body>
+</html>

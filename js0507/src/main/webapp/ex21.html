@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	let source = [1,2,3];
+	
+	let copy1 = source;		// 얕은 복사
+	copy1[1] = 99;
+	console.log(source);	// 원본도 바뀐다
+	
+	let copy2 = new Array(source.length);
+	for(let i = 0 ; i < copy2.length ; i++){	// 반복문 -> 깊은 복사
+		copy2[i] = source[i];
+	}
+	
+	copy2[2] = 99;
+	console.log(copy2);
+	console.log(source);
+	
+	let copy3 = [...source];	// 전개연산자 -> 깊은 복사
+	copy3[0] = 99;
+	console.log(copy3);
+	console.log(source);
+</script>
+</body>
+</html>

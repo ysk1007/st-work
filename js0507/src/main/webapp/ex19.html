@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/lodash.js" type="text/javascript"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script> -->
+</head>
+<body>
+<script>
+	let db = [
+		{name:'루피',age:17,gender:'남'},
+		{name:'조로',age:20,gender:'남'},
+		{name:'상디',age:19,gender:'남'},
+	];
+	db.forEach(val=>console.log(val));
+	
+	// 객체 배열을 정렬해주는 API
+	_.sortBy(db, (x)=> x.age).forEach(val=>console.log(val));
+</script>
+</body>
+</html>

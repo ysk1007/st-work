@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	class Student{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		
+		// 메서드를 화살표 함수 X
+		print(){
+			alert(this.name + this.age);
+		}
+	}
+	
+	let s = new Student('상디',25);	// Student() 함수 호출이 아니고 Student 클래스의 constructor
+	s.print();
+	
+	class Student2 extends Student{
+		constructor(name,age,gender){
+			super(name,age);
+			this.gender = gender;
+		}
+	}
+	
+	let s2 = new Student2('미역',25,'님');
+	s2.print();
+</script>
+</body>
+</html>

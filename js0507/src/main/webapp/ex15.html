@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	let a = [];
+	console.log(typeof a);
+	
+	let b = ()=>alert('test');
+	console.log(typeof b);
+	
+	let c = {};
+	console.log(typeof c);
+	
+	if(Array.isArray(c)){
+		console.log('배열 입니댜.');
+	}
+	else{
+		console.log('객체 입니댜.');
+	}
+</script>
+</body>
+</html>

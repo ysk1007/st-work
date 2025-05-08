@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div><input type="text" id ="a"></div>
+
+<div>
+	<input type="text" id ="textb">
+	<button type="button" id="btnB">ㅂㅌ</button>
+</div>
+
+<div>
+	<input type="text" id ="textc">
+	<button type="button" id="btnC">ㅂㅌ</button>
+</div>
+
+<script>
+	// Number API
+	let a = 3.141592;
+	//console.log(a.toFixed(2));
+	document.querySelector('#a').value = a.toFixed(2);
+	
+	document.querySelector('#btnB').addEventListener('click',()=>{
+		let textB = document.querySelector('#textb').value;
+		if(textB=='' || !isNaN(textB)){ // 공백 X, 숫자 X
+			alert('숫자가 아닙니다');
+		}else{
+			alert(textB);
+		}
+	});
+	
+	
+	// String API
+	document.querySelector('#btnC').addEventListener('click',()=>{
+		let arr = document.querySelector('#textc').value.split(',');
+		arr.forEach(val=>{
+			console.log(val);
+		})
+	});
+</script>
+</body>
+</html>

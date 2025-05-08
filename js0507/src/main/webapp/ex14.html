@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	const product = {
+		name:'망고',
+		type:'당절임',
+		madein:'필리핀',
+		print : function(){	// 함수, 메서드
+			alert(this.name);
+		},
+	
+		show : ()=>{		// 함수를 만들때만 사용
+			alert(this.name);
+		},
+		
+		print2(){	// 메서드 문법
+			
+		}
+	};
+	
+	product.type='설탕절임';
+	
+	alert(product['type']);
+	alert(product.type);
+	
+	product.print();
+	product.show();
+</script>
+</body>
+</html>

@@ -16,6 +16,6 @@ public class MfuApplication implements WebMvcConfigurer{
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		// 서비스하면 addResourceHandler(프로젝트안에서 사용할때 패스) addResourceLocations(서비스PC 폴더 위치)
-		registry.addResourceHandler("/upload/**").addResourceLocations("file:///c:/project/upload");
+		registry.addResourceHandler("/upload/**").addResourceLocations("file:///c:/project/upload/");
 	}
 }

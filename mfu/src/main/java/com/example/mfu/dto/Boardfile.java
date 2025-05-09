@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Boardfile {
 	private int boardfileNo;
-	private int boardNo;
-	private String filename;
-	private String fildtype;
+    private int boardNo;
+    private String filename;
+    private String filetype;
 }

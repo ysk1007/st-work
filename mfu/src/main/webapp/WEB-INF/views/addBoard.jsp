@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>addBoard</h1>
+	<a href="boardList">뒤로</a>
 	<form id="addForm" method="post" action="${pageContext.request.contextPath}/addBoard" enctype="multipart/form-data">
 		<table border="1">
 			<tr>
@@ -57,6 +58,18 @@
 	
 		document.querySelector('#addBtn').addEventListener('click',()=>{
 			// 폼(값) 유효성 검사
+			if(document.querySelector('#boardTitle').value == ''){
+				alert('제목을 입력하세요');
+				return;
+			}
+			
+			// 파일이 추가되지않은 node(input type=file)를 삭제하고
+			let boardfiles = document.querySelectorAll('.boardfile');
+			boardfiles.forEach(e=>{
+				if(e.value == ''){
+					e.remove();	// node 삭제
+				}
+			})
 			
 			document.querySelector('#addForm').submit();
 		})

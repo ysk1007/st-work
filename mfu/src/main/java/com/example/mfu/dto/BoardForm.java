@@ -8,6 +8,7 @@ import lombok.Data;
 
 @Data
 public class BoardForm {
+	private int boardNo;
 	private String boardTitle;
-	List<MultipartFile> boardfile;
+	private List<MultipartFile> boardfile;
 }

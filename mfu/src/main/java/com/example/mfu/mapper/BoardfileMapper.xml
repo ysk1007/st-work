@@ -2,10 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mfu.mapper.BoardfileMapper">
 	<insert id="insertBoardfile" parameterType="com.example.mfu.dto.Boardfile">
-		INSERT INTO boardfile(
+		INSERT INTO boardfile (
 			board_no, filename, filetype
-		) VALUES(
+		) VALUES (
 			#{boardNo}, #{filename}, #{filetype}
 		)
 	</insert>
+	
+	<select id="selectBoardfile" parameterType="com.example.mfu.dto.Boardfile">
+		SELECT
+			boardfile_no AS boardfileNo,
+			board_no AS boardNo,
+			filename,
+			filetype
+		FROM boardfile
+		WHERE board_no = #{boardNo};
+	</select>
+	
+	<select id="selectBoardfileOne" parameterType="int" resultType="com.example.mfu.dto.Boardfile">
+		SELECT
+			boardfile_no AS boardfileNo,
+			board_no AS boardNo,
+			filename,
+			filetype
+		FROM boardfile
+		WHERE boardfile_no = #{boardfileNo}
+	</select>
+
+	
+	<delete id="deleteBoardfile" parameterType="com.example.mfu.dto.Boardfile">
+		DELETE FROM boardfile
+		WHERE boardfile_no = #{boardfileNo}
+	</delete>
 </mapper>

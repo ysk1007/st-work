@@ -8,7 +8,38 @@
 		INSERT INTO board(
 			board_title
 		) VALUES(
-			#{title} <!-- board.getTitle() -->
+			#{boardTitle} <!-- board.getTitle() -->
 		)
 	</insert>
+	
+	<delete id="deleteBoard" parameterType="com.example.mfu.dto.Board">
+		DELETE FROM board
+		WHERE board_no = #{boardNo}
+	</delete>
+	
+	<!-- 게시글 제목 수정 -->
+	<update id="updateBoardTitle" parameterType="com.example.mfu.dto.Board">
+		UPDATE board SET
+		board_title = #{boardTitle}
+		WHERE board_no = #{boardNo}
+	</update>
+	
+	<!-- 리스트 출력 -->
+	<select id="selectBoard" parameterType="com.example.mfu.dto.Board">
+		SELECT 
+			board_no AS boardNo, 
+			board_title AS boardTitle
+		FROM board
+		ORDER BY board_no DESC
+	</select>
+	
+	<!-- 게시글 하나 출력 -->
+	<select id="selectBoardOne" parameterType="com.example.mfu.dto.Board">
+		SELECT
+			board_no AS boardNo,
+			board_title AS boardTitle
+		FROM board
+		WHERE board_no = #{board_no}
+	</select>
+	
 </mapper>

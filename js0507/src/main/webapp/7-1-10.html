@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+	
+<body>
+	<hr>
+		<div>
+			<h1 id="target">제거 대상</h1>
+		</div>
+	<hr>
+	
+	<div>두번째 DIV태그</div>
+	
+	<script>
+		const target = document.querySelector('#target')
+		setTimeout(()=>{
+			target.parentNode.removeChild(target);
+		},1000);
+	</script>
+	
+</body>
+</html>

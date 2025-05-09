@@ -3,76 +3,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>게시글 추가</title>
+	<!-- ✅ Bootstrap 5 CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-	<h1>addBoard</h1>
-	<a href="boardList">뒤로</a>
-	<form id="addForm" method="post" action="${pageContext.request.contextPath}/addBoard" enctype="multipart/form-data">
-		<table border="1">
-			<tr>
-				<td>제목</td>
-				<td>
-					<input type="text" name="boardTitle" id="boardTitle">
-				</td>
-			</tr>
-			<tr>
-				<td>파일</td>
-				<td>
-					<div>
-						<button type="button" id="appendFile">파일 추가</button>
-					</div>
-					<div id="fileDiv">
-						<input type="file" name="boardfile" class="boardfile">
-					</div>
-				</td>
-			</tr>
-		</table>
-		<button type="button" id="addBtn">입력</button>
-	</form>
-	
-	<script>
-		document.querySelector('#appendFile').addEventListener('click',()=>{
-			let flag = false;	// flag 초기화
+<body class="container py-5">
 
-			// input type=file 추가 : 파일들이 선택되어 있다면
+	<h1 class="mb-4">게시글 추가</h1>
+	<a href="boardList" class="btn btn-secondary mb-4">← 뒤로가기</a>
+
+	<form id="addForm" method="post" action="${pageContext.request.contextPath}/addBoard" enctype="multipart/form-data">
+		<div class="mb-3">
+			<label for="boardTitle" class="form-label">제목</label>
+			<input type="text" name="boardTitle" id="boardTitle" class="form-control" placeholder="제목을 입력하세요">
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label">파일</label>
+			<div class="d-flex gap-2 align-items-center mb-2">
+				<button type="button" id="appendFile" class="btn btn-outline-primary btn-sm">파일 추가</button>
+			</div>
+			<div id="fileDiv">
+				<input type="file" name="boardfile" class="form-control mb-2 boardfile">
+			</div>
+		</div>
+
+		<button type="button" id="addBtn" class="btn btn-primary">입력</button>
+	</form>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+	<script>
+		document.querySelector('#appendFile').addEventListener('click', () => {
+			let flag = false;
 			let boardfiles = document.querySelectorAll('.boardfile');
-			boardfiles.forEach(e=>{
-				if(e.value == ''){
-					alert('첨부하지 않은 파일이 있다.');
+			boardfiles.forEach(e => {
+				if (e.value === '') {
+					alert('첨부하지 않은 파일이 있습니다.');
 					flag = true;
-					return;	// forEach 콜백함수를 탈출
+					return;
 				}
 			});
-			
-			if(flag) return;
-			
+			if (flag) return;
+
 			let inputFile = document.createElement('input');
-			inputFile.setAttribute('type','file');
-			inputFile.setAttribute('name','boardfile');
-			inputFile.setAttribute('class','boardfile');
-			
+			inputFile.setAttribute('type', 'file');
+			inputFile.setAttribute('name', 'boardfile');
+			inputFile.setAttribute('class', 'form-control mb-2 boardfile');
 			document.querySelector('#fileDiv').appendChild(inputFile);
-		})
-	
-		document.querySelector('#addBtn').addEventListener('click',()=>{
-			// 폼(값) 유효성 검사
-			if(document.querySelector('#boardTitle').value == ''){
+		});
+
+		document.querySelector('#addBtn').addEventListener('click', () => {
+			if (document.querySelector('#boardTitle').value === '') {
 				alert('제목을 입력하세요');
 				return;
 			}
-			
-			// 파일이 추가되지않은 node(input type=file)를 삭제하고
 			let boardfiles = document.querySelectorAll('.boardfile');
-			boardfiles.forEach(e=>{
-				if(e.value == ''){
-					e.remove();	// node 삭제
+			boardfiles.forEach(e => {
+				if (e.value === '') {
+					e.remove();
 				}
-			})
-			
+			});
 			document.querySelector('#addForm').submit();
-		})
+		});
 	</script>
 </body>
 </html>

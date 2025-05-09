@@ -71,22 +71,27 @@ public class BoardService {
 		}
 	}
 	
+	// 보드 제목 수정
 	public void updateBoard(BoardForm boardform) {
 		boardMapper.updateBoardTitle(boardform);
 	}
 	
+	// 보드 리스트 가져오기
 	public List<Board> selectBoard(){
 		return boardMapper.selectBoard();
 	}
 	
+	// 보드 하나 가져오기
 	public Board selectBoardOne(int boardNo){
 		return boardMapper.selectBoardOne(boardNo);
 	}
 	
+	// 보드의 파일들 가져오기
 	public List<Boardfile> selectBoardfile(int boardNo){
 		return boardfileMapper.selectBoardfile(boardNo);
 	}
 	
+	// 보드 추가
 	public void addBoard(BoardForm boardForm) {
 		// 1) board 추가
 		Board board = new Board();

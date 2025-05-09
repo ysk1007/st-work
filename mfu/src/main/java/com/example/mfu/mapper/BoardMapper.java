@@ -9,10 +9,14 @@ import com.example.mfu.dto.BoardForm;
 
 @Mapper
 public interface BoardMapper {
+	
+	// 보드 제목 수정
 	void updateBoardTitle(BoardForm boardForm);
 	
+	// 보드 삭제
 	Integer deleteBoard(int boardNo);
 	
+	// 보드 추가
 	Integer insertBoard(Board board);
 	
 	// 게시글 목록 조회

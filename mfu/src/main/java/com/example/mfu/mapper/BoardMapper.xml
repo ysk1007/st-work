@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mfu.mapper.BoardMapper">
+	
+	<!-- 보드 추가하기 -->
 	<insert id="insertBoard" parameterType="com.example.mfu.dto.Board">
 		<selectKey resultType="Integer" keyProperty="boardNo" order="AFTER">		<!-- insert 후의 auto_key를 반환 parameterType.setXXX(key)-->
 			SELECT LAST_INSERT_ID()
@@ -12,6 +14,7 @@
 		)
 	</insert>
 	
+	<!-- 보드 삭제하기 -->
 	<delete id="deleteBoard" parameterType="com.example.mfu.dto.Board">
 		DELETE FROM board
 		WHERE board_no = #{boardNo}

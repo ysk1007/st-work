@@ -3,23 +3,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>게시글 목록</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-	<h1>boardList</h1>
-	<a href="addBoard">추가</a>
-	<table border="1">
-		<tr>
-			<td>#</td>
-			<td>제목</td>
-		</tr>
-		<c:forEach var="board" items="${list}">
+<body class="container py-5">
+
+	<h1 class="mb-4">📋 게시글 목록</h1>
+
+	<a href="addBoard" class="btn btn-primary mb-3">+ 게시글 추가</a>
+
+	<table class="table table-bordered table-hover">
+		<thead class="table-light">
 			<tr>
-				<td>${board.boardNo}</td>
-				<td><a href="/boardOne?boardNo=${board.boardNo}">${board.boardTitle}</a></td>
+				<th style="width: 10%">#</th>
+				<th>제목</th>
 			</tr>
-		</c:forEach>
+		</thead>
+		<tbody>
+			<c:forEach var="board" items="${list}">
+				<tr>
+					<td>${board.boardNo}</td>
+					<td>
+						<a href="/boardOne?boardNo=${board.boardNo}" class="text-decoration-none">
+							${board.boardTitle}
+						</a>
+					</td>
+				</tr>
+			</c:forEach>
+		</tbody>
 	</table>
+
 </body>
 </html>

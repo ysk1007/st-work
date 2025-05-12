@@ -26,23 +26,12 @@ public class ContinentController {
 			,@RequestParam(value="city", defaultValue="0") Integer cNo) {
 		
 		model.addAttribute("continentList",continentMapper.selectContinentList());
+		model.addAttribute("countryList",countryMapper.selectCountryList(ctnNo));
+		model.addAttribute("cityList",cityMapper.selectCityList(ctNo));
 		
-		log.info("ctnNo : " + ctnNo);
-		log.info("ctNo : " + ctNo);
-		log.info("cNo : " + cNo);
-		
-		if(ctnNo != null) {
-			model.addAttribute("countryList",countryMapper.selectCountryList(ctnNo));
-			model.addAttribute("ctnNo",ctnNo);
-		}
-		if(ctNo != null) {
-			model.addAttribute("cityList",cityMapper.selectCityList(ctNo));
-			model.addAttribute("ctNo",ctNo);
-		}
-		
-		if(cNo != null) {
-			model.addAttribute("cNo",cNo);
-		}
+		model.addAttribute("ctnNo",ctnNo);
+		model.addAttribute("ctNo",ctNo);
+		model.addAttribute("cNo",cNo);
 		
 		return "continentList";
 	}

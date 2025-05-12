@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded',function(){
+			let count = 0;
+			const h1 = document.querySelector('h1');
+			
+			h1.addEventListener('click', function(e){
+				console.log(e);
+				if(e.type=='click'){
+					count++;
+					h1.textContent = `클릭 횟수: ${count}`;
+				}
+			})
+		})
+	</script>
+	<style>
+		h1{
+			user-select: none;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>클릭 회수 : 0</h1>
+
+</body>
+</html>

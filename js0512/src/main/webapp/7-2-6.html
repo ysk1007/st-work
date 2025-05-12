@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	pw : <input type="password" id="pw1"><br>
+	확인 : <input type="password" id="pw2"><br>
+	<button type="button" id="btn" disabled="disabled">전송</button>
+	
+	
+	<select id="food">
+		<option value="">:::선택:::</option>
+		<option>떡볶이</option>
+		<option>순대</option>
+		<option>어묵</option>
+		<option>튀김</option>
+	</select>
+</body>
+
+<script>
+
+	document.querySelector('#pw1').addEventListener('focus', function(){
+		document.querySelector('#btn').disabled = true;
+	})
+
+	document.querySelector('#pw2').addEventListener('focus', function(){
+		document.querySelector('#btn').disabled = true;
+	})
+
+	document.querySelector('#pw1').addEventListener('blur', function(){
+		if(this.value.length < 4){
+			alert('pw는 4자 이상입니다');
+		}
+		else{
+			document.querySelector('#pw2').focus();
+		}
+	})
+	
+	document.querySelector('#pw2').addEventListener('blur', function(){
+		if(this.value != document.querySelector('#pw1').value){
+			alert('패스워드가 일치하지 않습니다.');
+			document.querySelector('#btn').disabled = true;
+		}
+		else{
+			document.querySelector('#btn').disabled = false;
+		}
+	})
+	
+	document.querySelector('#food').addEventListener('change', function(){
+		let val = this.value;
+		if(val == ''){
+			alert('food를 선택하세요');
+		}
+		else{
+			alert(this.value + '입니다.');
+		}
+	})
+</script>
+
+</html>

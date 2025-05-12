@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>	
+	생일을 입력하세요
+	<input type="date" id="birth" value="2000-10-07">
+	<button id="btn">한국 나이 출력</button>
+	<hr>
+	<h1>🎂당신의 한국나이는 <span id="target" style="color:red;"></span>입니다.</h1>
+	<script>
+		const today = new Date();
+		const todayYear = today.getFullYear();
+		const todayMonth = today.getMonth() + 1;
+		const todayDate = today.getDate();
+		
+		document.querySelector('#btn').addEventListener('click',function(){
+			let birth = document.querySelector('#birth').value;
+			// 0123456789
+			// yyyy-mm-dd
+			
+			const birthYear = birth.substring(0, 4);
+			const birthMonth = birth.substring(5, 7);
+			const birthDate = birth.substring(8);
+			
+			let age = todayYear - birthYear - 1;
+			if(birthMonth <= todayMonth){
+				if(birthDate <= todayDate){
+					age++;
+				}
+			}
+			
+			document.querySelector('#target').textContent = age;
+		})
+	</script>
+	
+</body>
+</html>

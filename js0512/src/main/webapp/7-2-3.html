@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div><span id="target">★</span></div>
+</body>
+
+<script>
+	const star = document.querySelector('#target');
+	star.style.position = 'absolute';
+	
+	// let [x,y] = [0, 0];
+	let x = 0;
+	let y = 0;
+	const block = 20;
+	const print = function(e){
+		e.style.left = x * block + 'px';
+		e.style.top = y * block + 'px';
+	};
+	
+	document.body.addEventListener('keydown', function(e){
+		switch(e.key){
+		case 'ArrowLeft':
+			x--;
+			break;
+		case 'ArrowRight':
+			x++;
+			break;
+		case 'ArrowUp':
+			y--;
+			break;
+		case 'ArrowDown':
+			y++;
+			break;
+		default:
+			//alert('방향키만 사용 가능합니다.');
+		}
+		if(x < 0){
+			x = 0;
+		}
+		if(y < 0){
+			y = 0;
+		}
+		
+		print(star);
+	})
+</script>
+
+</html>

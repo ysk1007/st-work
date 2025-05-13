@@ -8,4 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface CountryMapper {
 	List<Map<String,Object>> selectCountryList(int continentNo);
+	
+	//List<Map<String,Object>> selectCityList(int countryNo);
 }

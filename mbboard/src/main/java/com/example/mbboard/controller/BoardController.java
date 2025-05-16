@@ -24,7 +24,7 @@ public class BoardController {
 
 	@Autowired IBoardService boardService; // 인터페이스 형태로 의존성 주입 -> 디커플링
 	
-	@GetMapping({"/","boardList"})
+	@GetMapping("boardList")
 	public String boardList(Model model
 			, @RequestParam (value="currentPage", defaultValue="1")int currentPage
 			, @RequestParam(value="searchWord", defaultValue="") String searchWord) {

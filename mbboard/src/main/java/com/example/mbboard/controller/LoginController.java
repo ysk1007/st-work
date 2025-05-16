@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.mbboard.dto.ConnectCount;
 import com.example.mbboard.dto.Member;
 import com.example.mbboard.service.ILoginService;
+import com.example.mbboard.service.IRootService;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class LoginController {
 	@Autowired ILoginService loginService;
+	@Autowired IRootService rootService;
 
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
@@ -43,6 +46,14 @@ public class LoginController {
 		
 		if(loginMember != null) {
 			session.setAttribute("loginMember", loginMember);
+			ConnectCount cc = new ConnectCount();
+			cc.setMemberRole(loginMember.getMemberRole());
+			if(rootService.getConnectDateByKey(cc) != null) {
+				rootService.modifyConnectCount(cc);		// 오늘 날짜 count = count + 1
+			}
+			else {
+				rootService.addConnectCount(cc);		// 오늘 날짜 count = 1 추가
+			}
 			return "/member/memberHome";
 		}
 		
@@ -52,9 +63,7 @@ public class LoginController {
 	}
 
 	@GetMapping("/member/info")	// 세션안에 상세정보를 보여주는 요청 -> 로그인 된 상태에서 요청 가능 -> 필터1
-	public String info(HttpSession session) {
-		Member loginMember = (Member)session.getAttribute("loginMember");
-		
+	public String info() {		
 		return "/member/info";
 	}
 	

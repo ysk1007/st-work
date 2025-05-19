@@ -35,12 +35,18 @@
 					<div class="alert alert-warning text-center" role="alert">
 						${message}
 					</div>
+					
+					<script>
+					    alert("${message}");
+					</script>
 				</c:if>
 
 				<form id="memberForm" name="member" method="post" action="/login">
 					<div class="mb-3">
 						<label for="memberId" class="form-label">아이디</label>
-						<input type="text" class="form-control" id="memberId" name="memberId" required>
+						<input type="text" class="form-control" id="memberId" name="memberId" value="${cookie.saveId.value}" required>
+						<label for="saveIdCk" class="form-label">아이디 저장</label>
+						<input type="checkbox" value="yes" name="saveIdCk">
 					</div>
 					
 					<div class="mb-3">
@@ -51,6 +57,7 @@
 					<div class="d-grid gap-2">
 						<button id="loginBtn" type="button" class="btn btn-primary">로그인</button>
 						<a href="/joinMember" class="btn btn-outline-secondary">회원가입</a>
+						<a href="/findMemberPw" class="btn btn-outline-secondary">비밀번호 찾기</a>
 					</div>
 				</form>
 			</div>

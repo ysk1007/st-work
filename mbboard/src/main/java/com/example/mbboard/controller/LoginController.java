@@ -6,14 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.mbboard.dto.ConnectCount;
 import com.example.mbboard.dto.Member;
 import com.example.mbboard.service.ILoginService;
 import com.example.mbboard.service.IRootService;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,10 +27,54 @@ public class LoginController {
 	@Autowired ILoginService loginService;
 	@Autowired IRootService rootService;
 
+	@GetMapping("findMemberPw")
+	public String findMemberPw() {
+		return "findMemberPw";
+	}
+	
+	@PostMapping("findMemberPw")
+	public String findMemberPw(Member member) {
+		// 비밀번호 변경
+		loginService.updateMemberPwByAdmin(member);
+		
+		// 비밀번호 변경 페이지로 
+		return "redirect:/rechangeMemberPw";
+	}
+	
+	@GetMapping("rechangeMemberPw")
+	public String rechangeMemberPw() {
+		return "rechangeMemberPw";
+	}
+	
+	// 비밀번호 수정 기능
+	@PostMapping("/rechangeMemberPw")
+	public String rechangeMemberPw(RedirectAttributes redirectAttributes, Member member, @RequestParam("reMemberPw") String reMemberPw) {
+	    Member target = loginService.selectMember(member);
+	    if (target == null) {
+	        redirectAttributes.addFlashAttribute("message", "잘못된 아이디/비밀번호 입니다.");
+	        return "redirect:/rechangeMemberPw";
+	    }
+
+	    member.setMemberPw(reMemberPw);
+	    int row = loginService.rechangeMemberPw(member);
+	    
+	    if (row != 1) {
+	        redirectAttributes.addFlashAttribute("message", "10분이 지났습니다. 다시 비밀번호를 찾아주세요.");
+	    } else {
+	        redirectAttributes.addFlashAttribute("message", "성공적으로 비밀번호를 수정 했습니다.");
+	    }
+
+	    return "redirect:/logout";
+	}
+	
 	@GetMapping("/logout")
-	public String logout(HttpSession session) {
-		session.invalidate();	// 초기화
-		return "redirect:/login";
+	public String logout(HttpSession session, RedirectAttributes redirectAttributes, @ModelAttribute("message") String message) {
+	    session.invalidate(); // 세션 초기화
+
+	    // 메시지를 다시 flash로 넘겨줌 (두 번째 redirect를 위한 중계)
+	    redirectAttributes.addFlashAttribute("message", message);
+
+	    return "redirect:/login";
 	}
 	
 	@GetMapping("/login")
@@ -41,10 +89,21 @@ public class LoginController {
 	}
 	
 	@PostMapping("/login")
-	public String login(HttpSession session, Model model,Member paramMember) {
+	public String login(HttpSession session, Model model,Member paramMember, HttpServletResponse response) {
 		Member loginMember = loginService.login(paramMember);
 		
 		if(loginMember != null) {
+			
+			// 클라이언트 쿠키에도 로그인에 성공한 ID만 저장
+			if(paramMember.getSaveIdCk() != null) {
+				Cookie cookie = new Cookie("saveId",paramMember.getMemberId());
+				response.addCookie(cookie);
+			}
+			else {
+				Cookie cookie = new Cookie("saveId","");
+				response.addCookie(cookie);
+			}
+			
 			session.setAttribute("loginMember", loginMember);
 			ConnectCount cc = new ConnectCount();
 			cc.setMemberRole(loginMember.getMemberRole());

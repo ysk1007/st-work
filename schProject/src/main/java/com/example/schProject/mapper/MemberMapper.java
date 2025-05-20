@@ -1,0 +1,22 @@
+package com.example.schProject.mapper;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+
+import com.example.schProject.dto.Member;
+
+@Mapper
+public interface MemberMapper {
+	List<Member> selectMeberList();
+	
+	Member login(Member member);
+	
+	int updateLoginDate(Member member);
+	
+	int updateMemberActive();
+	
+	List<Member> selectDormancyMemberList();
+	
+	int updateMember(Member member);
+}

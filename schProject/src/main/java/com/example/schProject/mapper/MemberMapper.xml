@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.schProject.mapper.MemberMapper">
+
+	<select id="selectMeberList" resultType="com.example.schProject.dto.Member">
+		SELECT
+			id, email, active
+		FROM member
+	</select>
+	
+	<select id="login" resultType="com.example.schProject.dto.Member"
+						parameterType="com.example.schProject.dto.Member">
+		SELECT
+			id, email, active
+		FROM member					
+		WHERE id = #{id} AND pw = #{pw}
+	</select>
+	
+	<update id="updateLoginDate" parameterType="com.example.schProject.dto.Member">
+		UPDATE login_history SET
+			logindate = now()
+		WHERE id = #{id}
+	</update>
+	
+	<update id="updateMemberActive">
+		UPDATE MEMBER SET 
+		ACTIVE = 'OFF'
+		WHERE id IN (SELECT 
+						id
+					FROM login_history 
+					WHERE TIMESTAMPDIFF(YEAR,logindate, NOW()) >= 1
+			)
+	</update>
+	
+	<select id="selectDormancyMemberList" resultType="com.example.schProject.dto.Member">
+		SELECT 
+			lh.id,
+			m.active,
+			m.email
+		FROM login_history lh
+		INNER JOIN member m ON lh.id = m.id
+		WHERE TIMESTAMPDIFF(YEAR, logindate, NOW()) >= 1 
+			AND m.active = 'ON' 
+			AND m.email IS NOT NULL
+	</select>
+
+	<update id="updateMember" parameterType="com.example.schProject.dto.Member">
+	    UPDATE member
+	    <set>
+	        <if test="pw != null">pw = #{pw},</if>
+	        <if test="email != null">email = #{email},</if>
+	        <if test="active != null">active = #{active},</if>
+	    </set>
+	    WHERE id = #{id}
+	</update>
+
+	
+</mapper>

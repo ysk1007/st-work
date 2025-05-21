@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<a href="/modifyPw">비밀번호 수정</a>
 	<c:if test="${not empty memberList}">
 		<table border="1">
 		

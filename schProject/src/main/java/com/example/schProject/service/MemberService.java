@@ -21,6 +21,11 @@ public class MemberService implements IMemberService {
 	}
 	
 	@Override
+	public Member selectMember(Member member) {
+		return memberMapper.selectMember(member);
+	}
+	
+	@Override
 	public Member login(Member member) {
 		return memberMapper.login(member);
 	}
@@ -43,5 +48,20 @@ public class MemberService implements IMemberService {
 	@Override
 	public int updateMember(Member member) {
 		return memberMapper.updateMember(member);
+	}
+	
+	@Override
+	public int insertPwHistory(Member member) {
+		return memberMapper.insertPwHistory(member);
+	}
+	
+	@Override
+	public Member selectPwHistory(Member member) {
+		return memberMapper.selectPwHistory(member);
+	}
+	
+	@Override
+	public int deletePwHistory() {
+		return memberMapper.deletePwHistory();
 	}
 }

@@ -7,6 +7,8 @@ import com.example.schProject.dto.Member;
 public interface IMemberService {
 	List<Member> selectMemberList();
 	
+	Member selectMember(Member member);
+	
 	Member login(Member member);
 	
 	int updateLoginDate(Member member);
@@ -18,4 +20,11 @@ public interface IMemberService {
 	
 	// 휴면 멤버만 뽑기
 	List<Member> selectDormancyMemberList();
+	
+	int insertPwHistory(Member member);
+	
+	Member selectPwHistory(Member member);
+	
+	// 비밀번호 이력 삭제하기
+	int deletePwHistory();
 }

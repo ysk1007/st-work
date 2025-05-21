@@ -10,6 +10,10 @@ import com.example.schProject.dto.Member;
 public interface MemberMapper {
 	List<Member> selectMeberList();
 	
+	Member selectMember(Member member);
+	
+	Member selectPwHistory(Member member);
+	
 	Member login(Member member);
 	
 	int updateLoginDate(Member member);
@@ -19,4 +23,8 @@ public interface MemberMapper {
 	List<Member> selectDormancyMemberList();
 	
 	int updateMember(Member member);
+	
+	int insertPwHistory(Member member);
+	
+	int deletePwHistory();
 }

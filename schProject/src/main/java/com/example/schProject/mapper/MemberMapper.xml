@@ -8,6 +8,15 @@
 		FROM member
 	</select>
 	
+	<select id="selectMember" parameterType="com.example.schProject.dto.Member"
+								resultType="com.example.schProject.dto.Member">
+		SELECT
+			id,email,active
+		FROM member
+		WHERE id = #{id} AND pw = #{pw}
+								
+	</select>
+	
 	<select id="login" resultType="com.example.schProject.dto.Member"
 						parameterType="com.example.schProject.dto.Member">
 		SELECT
@@ -44,6 +53,11 @@
 			AND m.email IS NOT NULL
 	</select>
 
+	<select id="selectPwHistory" parameterType="com.example.schProject.dto.Member">
+		SELECT * FROM pw_history
+		WHERE id = #{id} AND pw = #{pw};
+	</select>
+
 	<update id="updateMember" parameterType="com.example.schProject.dto.Member">
 	    UPDATE member
 	    <set>
@@ -54,5 +68,23 @@
 	    WHERE id = #{id}
 	</update>
 
+	<insert id="insertPwHistory" parameterType="com.example.schProject.dto.Member">
+		INSERT INTO pw_history(
+			id, pw
+		) VALUES(
+			#{id}, #{pw}
+		)
+	</insert>
 	
+	<delete id="deletePwHistory">
+		DELETE FROM pw_history
+		WHERE no IN (
+		    SELECT no
+		    FROM (
+		        SELECT no,
+		               ROW_NUMBER() OVER (PARTITION BY id ORDER BY change_date DESC) AS rn
+		        FROM pw_history
+		    ) AS ranked
+	    WHERE rn > 5);
+	</delete>
 </mapper>

@@ -47,8 +47,8 @@ public class activeSchedule {
 		memberService.updateMemberActive();
 	}
 	
-	//@Scheduled(cron="0 0 0 1 * *")
-	@Scheduled(cron="* * * * * *")
+	@Scheduled(cron="0 0 0 1 * *")
+	//@Scheduled(cron="* * * * * *")
 	public void delteHistory() {
 		log.info("비밀번호 이력 갱신 합니다.");
 		// 비밀번호 변경 이력 최신 5개 제외하고 모두 삭제하기

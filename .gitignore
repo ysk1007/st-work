@@ -1,2 +1,42 @@
 /.metadata/
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Gradle (만약 사용 중인 경우)
+build/
+!.gradle/
+.gradle/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# STS (Spring Tool Suite)
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans/
+.sts4-cache/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# 기타
+HELP.md
 application.properties
+signapp/
+

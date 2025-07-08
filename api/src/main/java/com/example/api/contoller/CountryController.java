@@ -1,23 +1,24 @@
 package com.example.api.contoller;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.api.dto.CountryDto;
 import com.example.api.entity.CountryEntity;
+import com.example.api.entity.CountryMapping;
 import com.example.api.service.CountryService;
 
 @RestController
+@CrossOrigin
 public class CountryController {
 	private CountryService countryService;
 	
@@ -45,11 +46,19 @@ public class CountryController {
 		return new ResponseEntity<String>("수정 성공", HttpStatus.OK);
 	}
 	
-	@GetMapping("/country")
-	public ResponseEntity<List<CountryEntity>> country(){
-		return new ResponseEntity<List<CountryEntity>>(countryService.findAll(), HttpStatus.OK);
+	// 한행 조회
+	@GetMapping("/countryOne/{countryId}")
+	public ResponseEntity<CountryEntity> countryOne(@PathVariable int countryId){
+		return new ResponseEntity<CountryEntity>(countryService.findById(countryId), HttpStatus.OK);
 	}
 	
+	// 전체 조회
+	@GetMapping("/countryList/{currentPage}")
+	public ResponseEntity<Page<CountryMapping>> countryList(@PathVariable int currentPage){
+		return new ResponseEntity<Page<CountryMapping>>(countryService.findAll(currentPage), HttpStatus.OK);
+	}
+	
+	// 삽입
 	@PostMapping("/country")
 	public ResponseEntity<String> country(@RequestBody CountryDto countryDto){
 		// // @RequestBody json 형태의 문자열 매개값을 CountryDto 타입으로 변환시킨다.

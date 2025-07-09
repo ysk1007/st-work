@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.util.Base64"/>
-    <fullyQualifiedTypeName name="java.util.Base64.Decoder"/>
     <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Mapper"/>
@@ -56,8 +54,10 @@
     <fullyQualifiedTypeName name="jakarta.servlet.Filter"/>
     <fullyQualifiedTypeName name="jakarta.servlet.annotation.WebFilter"/>
     <fullyQualifiedTypeName name="org.springframework.boot.web.servlet.ServletComponentScan"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
     <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Aspect"/>
     <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Before"/>
     <fullyQualifiedTypeName name="org.aspectj.lang.annotation.After"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.HandlerInterceptor"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.WebMvcConfigurer"/>
 </qualifiedTypeNameHistroy>

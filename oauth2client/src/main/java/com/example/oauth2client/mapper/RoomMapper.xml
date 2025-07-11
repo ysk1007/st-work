@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.oauth2client.mapper.RoomMapper">
+	<select id="selectRoom" parameterType="map" resultType="map">
+		SELECT
+		 rm.room_no AS roomNo,
+		 rm.room_name AS roomName,
+		 rm.room_limit AS roomLimit,
+		 rv.reservation_no AS reservationNo
+		FROM room rm
+		LEFT JOIN (
+			SELECT * FROM reservation WHERE reservation_date = #{date} AND reservation_option = #{option}
+		) rv ON rm.room_no = rv.room_no;
+	</select>
+</mapper>

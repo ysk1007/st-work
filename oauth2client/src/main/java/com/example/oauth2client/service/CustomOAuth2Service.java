@@ -20,13 +20,13 @@ public class CustomOAuth2Service extends DefaultOAuth2UserService{
 		
 		// 분기
 		if(userRequest.getClientRegistration().getRegistrationId().equals("naver")) {
-			customOAuth2User = new CustomOAuth2User(oAuth2User.getAttributes(), "ROLE_NAVER");
+			customOAuth2User = new CustomOAuth2User(oAuth2User.getAttributes(), "NAVER");
 		}
 		else if(userRequest.getClientRegistration().getRegistrationId().equals("google")) {
-			customOAuth2User = new CustomOAuth2User(oAuth2User.getAttributes(), "ROLE_GOOGLE");
+			customOAuth2User = new CustomOAuth2User(oAuth2User.getAttributes(), "GOOGLE");
 		}
 		else if(userRequest.getClientRegistration().getRegistrationId().equals("kakao")) {
-			customOAuth2User = new CustomOAuth2User(oAuth2User.getAttributes(), "ROLE_KAKAO");
+			customOAuth2User = new CustomOAuth2User(oAuth2User.getAttributes(), "KAKAO");
 		}
 		else {
 			System.out.println("인증 서버 오류 !");

@@ -25,7 +25,7 @@ public class SecurityConfig {
 
 		// 인가설정
 		httpSecurity.authorizeHttpRequests(requestMatcherRegistry -> 
-					requestMatcherRegistry.requestMatchers("/","/WEB-INF/view/**","/login/**","/oauth2/**").permitAll()
+					requestMatcherRegistry.requestMatchers("/","/WEB-INF/view/**","/login/**","/oauth2/**",".well-known/**").permitAll()
 										  .anyRequest().authenticated()
 		);
 		

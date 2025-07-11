@@ -2,7 +2,10 @@ package com.example.oauth2client.controller;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,8 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.oauth2client.service.ReservationService;
+
 @Controller
 public class MyPage {
+	@Autowired ReservationService reservationService;
+	
 	@GetMapping("/myPage")
 	public String myPage(Model model) {
 		
@@ -36,9 +43,10 @@ public class MyPage {
 			ga.getAuthority();
 		}
 		*/
-		
+		List<Map<String,Object>> list = reservationService.selectMyReservation(loginUsername);
 		model.addAttribute("loginUsername",loginUsername);
 		model.addAttribute("role",role);
+		model.addAttribute("list",list);
 		return "myPage";
 	}
 }

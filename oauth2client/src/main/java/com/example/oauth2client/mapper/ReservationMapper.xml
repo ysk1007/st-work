@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.oauth2client.mapper.ReservationMapper">
+
+	<select id="selectMyReservation" parameterType="String" resultType="map">
+		SELECT
+			rv.reservation_no AS reservationNo,
+			rv.room_no AS roomNo,
+			rm.room_name AS roomName,
+			rv.reservation_date AS reservationDate,
+			rv.reservation_option AS rservationOption,
+			rv.reservation_id AS rservationId,
+			rv.reservation_count AS rservationCount
+		FROM reservation rv
+		INNER JOIN room rm ON rv.room_no = rm.room_no
+		WHERE provider = #{provider} AND reservation_date >= CURDATE();
+	</select>
+
+	<insert id="insertReservation" parameterType="com.example.oauth2client.dto.ReservationDto">
+		INSERT INTO reservation(
+			room_no, reservation_date, reservation_option, reservation_id, reservation_count, provider
+		) VALUES(
+			#{roomNo}, #{reservationDate}, #{reservationOption}, #{reservationId}, #{reservationCount}, #{provider}
+		)
+	</insert>
+
+</mapper>

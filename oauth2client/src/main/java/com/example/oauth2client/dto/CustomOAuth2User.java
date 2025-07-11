@@ -39,13 +39,13 @@ public class CustomOAuth2User implements OAuth2User{	// OAuth2UserService 반환
 
 	@Override
 	public String getName() {	// attributes 속성중에 유니크한(email or mobile) 값을 반환
-		if(this.role.equals("ROLE_NAVER")){
-			return (String)((Map<String, Object>)this.attributes.get("response")).get("profile_image");
+		if(this.role.equals("NAVER")){
+			return (String)((Map<String, Object>)this.attributes.get("response")).get("mobile");
 		}
-		else if(this.role.equals("ROLE_GOOGLE")) {
-			return (String)((Map<String, Object>)this.attributes).get("picture");
+		else if(this.role.equals("GOOGLE")) {
+			return (String)((Map<String, Object>)this.attributes).get("email");
 		}
-		else if(this.role.equals("ROLE_KAKAO")) {
+		else if(this.role.equals("KAKAO")) {
 			return (String)((Map<String, Object>)this.attributes.get("properties")).get("profile_image");
 		}
 		else {
@@ -54,13 +54,13 @@ public class CustomOAuth2User implements OAuth2User{	// OAuth2UserService 반환
 	}
 	
 	public String getProfile() {
-		if(this.role.equals("ROLE_NAVER")){			
+		if(this.role.equals("NAVER")){			
 			return (String)((Map<String, Object>)this.attributes.get("response")).get("profile_image");
 		}
-		else if(this.role.equals("ROLE_GOOGLE")) {
+		else if(this.role.equals("GOOGLE")) {
 			return (String)((Map<String, Object>)this.attributes).get("email");
 		}
-		else if(this.role.equals("ROLE_KAKAO")) {
+		else if(this.role.equals("KAKAO")) {
 			return (String)((Map<String, Object>)this.attributes.get("properties")).get("profile_image");
 		}
 		else {

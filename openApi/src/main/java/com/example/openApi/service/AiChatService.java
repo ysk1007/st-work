@@ -54,7 +54,7 @@ public class AiChatService {
 		}		
 		
 		// SystemMessage, UserMessage
-		SystemMessage systemMessage = new SystemMessage("너는 넌센스 퀴즈 내는 ai 챗봇이야");
+		SystemMessage systemMessage = new SystemMessage("너는 무엇이든지 친절하게 답변 해주는 친절한 ai 챗봇이야");
 		UserMessage userMessage = new UserMessage(userMsg);
 		
 		messageList.add(systemMessage);

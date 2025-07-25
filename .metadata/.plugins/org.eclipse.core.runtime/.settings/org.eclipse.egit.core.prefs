@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=D\:\\spring\\st-work\\cicdtest\\.git;D\:\\spring\\st-work\\signapp\\.git;D\:\\spring\\st-work\\fileupload\\.git;D\:\\spring\\st-work\\api\\.git;D\:\\spring\\st-work\\jpaboard\\.git;C\:\\Users\\GD\\git\\repository\\.git;D\:\\spring\\st-work\\.git;
-GitRepositoriesView.GitDirectories.relative=cicdtest\\.git;signapp\\.git;fileupload\\.git;api\\.git;jpaboard\\.git;C\:\\Users\\GD\\git\\repository\\.git;.git;
+GitRepositoriesView.GitDirectories=D\:\\spring\\st-work\\cicdtest\\.git;D\:\\spring\\st-work\\signapp\\.git;C\:\\Users\\GD\\Desktop\\stswebjpa\\.git;D\:\\spring\\st-work\\api\\.git;D\:\\spring\\st-work\\fileupload\\.git;C\:\\Users\\GD\\git\\repository\\.git;D\:\\spring\\st-work\\.git;
+GitRepositoriesView.GitDirectories.relative=cicdtest\\.git;signapp\\.git;C\:\\Users\\GD\\Desktop\\stswebjpa\\.git;api\\.git;fileupload\\.git;C\:\\Users\\GD\\git\\repository\\.git;.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
